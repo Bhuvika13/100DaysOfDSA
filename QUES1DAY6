@@ -1,0 +1,38 @@
+#include <stdio.h>
+
+int main() {
+    int arr[100], n, i, j;
+
+    // Input size
+    printf("Enter number of elements: ");
+    scanf("%d", &n);
+
+    // Input sorted array
+    printf("Enter %d sorted elements:\n", n);
+    for(i = 0; i < n; i++) {
+        scanf("%d", &arr[i]);
+    }
+
+    // Edge case
+    if(n == 0) {
+        return 0;
+    }
+
+    // i points to last unique element
+    i = 0;
+
+    for(j = 1; j < n; j++) {
+        if(arr[j] != arr[i]) {
+            i++;
+            arr[i] = arr[j];
+        }
+    }
+
+    // Print unique elements
+    printf("Unique elements:\n");
+    for(int k = 0; k <= i; k++) {
+        printf("%d ", arr[k]);
+    }
+
+    return 0;
+}
